@@ -1,33 +1,7 @@
-# Homework 3 Dynamic Memory Allocator - CSE 320 - Fall 2024
 #### Professors Eugene Stark and Dongyoon Lee
-
-### **Due Date: Friday 10/25/2024 @ 11:59pm**
-
-
-We **HIGHLY** suggest that you read this entire document, the book chapter,
-and examine the base code prior to beginning. If you do not read the entire
-document before beginning, you may find yourself doing extra work.
-
-> :scream: Start early so that you have an adequate amount of time to test
-your program!
-
-> :scream: The functions `malloc`, `free`, `realloc`, `memalign`, `calloc`,
-> etc., are **NOT ALLOWED** in your implementation. If any of these functions,
-> or any other function with similar functionality is found in your program,
-> you **will receive a <font color="red">ZERO</font>**.
 
 **NOTE:** In this document, we refer to a word as 2 bytes (16 bits) and a memory
 row as 4 words (64 bits). We consider a page of memory to be 2048 bytes (2 KB)
-
-# Introduction
-
-You must read **Chapter 9.9 Dynamic Memory Allocation Page 839** before
-starting this assignment. This chapter contains all the theoretical
-information needed to complete this assignment. Since the textbook has
-sufficient information about the different design strategies and
-implementation details of an allocator, this document will not cover this
-information. Instead, it will refer you to the necessary sections and pages in
-the textbook.
 
 ## Takeaways
 
@@ -921,54 +895,3 @@ It is also possible to restrict the set of tests that are run.  For example,
 using `--filter suite_name/test_name` will only run the test named `test_name`
 in test suite `suite_name` (if there is such a test, otherwise it will run
 no tests).
-
-# Writing Criterion Tests
-
-The first test `malloc_an_int` tests `sf_malloc`.
-It allocates space for an integer and assigns a value to that space.
-It then runs an assertion to make sure that the space returned by `sf_malloc`
-was properly assigned.
-
-```c
-cr_assert(*x == 4, "sf_malloc failed to give proper space for an int!");
-```
-
-The string after the assertion only gets printed to the screen if the assertion
-failed (i.e. `*x != 4`). However, if there is a problem before the assertion,
-such as a SEGFAULT, the unit test will print the error to the screen and
-continue to run the rest of the unit tests.
-
-For this assignment **<font color="red">you must write 5 additional unit tests
-which test new functionality and add them to `sfmm_tests.c` below the following
-comment:</font>**
-
-```
-//############################################
-//STUDENT UNIT TESTS SHOULD BE WRITTEN BELOW
-//DO NOT DELETE OR MANGLE THESE COMMENTS
-//############################################
-```
-
-> For additional information on Criterion library, take a look at the official
-> documentation located [here](http://criterion.readthedocs.io/en/master/)! This
-> documentation is VERY GOOD.
-
-# Hand-in instructions
-Make sure your directory tree looks like it did originally after merging the basecode,
-and and that your homework compiles.
-
-This homework's tag is: `hw3`
-
-<pre>
-$ git submit hw3
-</pre>
-
-# A Word to the Wise
-
-This program will be very difficult to get working unless you are
-extremely disciplined about your coding style.  Think carefully about how
-to modularize your code in a way that makes it easier to understand and
-avoid mistakes.  Verbose, repetitive code is error-prone and **evil!**
-When writing your program try to comment as much as possible.
-Format the code consistently.  It is much easier for your TA and the
-professor to help you if we can quickly figure out what your code does.
